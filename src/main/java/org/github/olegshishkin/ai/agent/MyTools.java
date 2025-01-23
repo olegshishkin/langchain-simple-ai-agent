@@ -2,16 +2,17 @@ package org.github.olegshishkin.ai.agent;
 
 import dev.langchain4j.agent.tool.P;
 import dev.langchain4j.agent.tool.Tool;
-import lombok.extern.java.Log;
+import dev.langchain4j.service.V;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-@Log
+@Slf4j
 @Component
 public class MyTools {
 
     @Tool("Этот метод вызывает эндпоинт для расчета площади комнаты")
     public Double getSquare(@P("Ширина комнаты") Double width, @P("Длина комнаты") Double height) {
-        log.info("Площадь комнаты");
+        log.info("Площадь комнаты для {} * {}", width, height);
         return width * height;
     }
 
@@ -28,8 +29,9 @@ public class MyTools {
     }
 
     @Tool("Этот метод возвращает площадь слона")
-    public String getElephantSize() {
-        log.info("Размер слона");
+    public String getElephantSize(@V("Имя файла") String fileName,
+            @V("Контент shell-скрипта для поиска файла") String script) {
+        log.info("Размер слона. Bash-скрипт поиска файла {}: {}", fileName, script);
         return "7 квадратных метров";
     }
 

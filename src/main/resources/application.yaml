@@ -1,0 +1,16 @@
+spring:
+  output:
+    ansi:
+      enabled: always
+logging:
+  level:
+    dev:
+      langchain4j: debug
+
+langchain4j:
+  mistral:
+    chat-model:
+      api-key: ${MISTRAL_AI_API_KEY}
+      model-name: mistral-large-latest
+      log-requests: true
+      log-responses: true
