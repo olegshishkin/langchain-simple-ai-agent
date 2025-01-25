@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 public class MyTools {
 
     @Tool("Этот метод вызывает эндпоинт для расчета площади комнаты")
-    public Double getSquare(@P("Ширина комнаты") Double width, @P("Длина комнаты") Double height) {
-        log.info("Площадь комнаты для {} * {}", width, height);
-        return width * height;
+    public Double getSquare(@P("Ширина комнаты") Double width, @P("Длина комнаты") Double length) {
+        log.info("Площадь комнаты для {} * {}", width, length);
+        return width * length;
     }
 
     @Tool("Этот метод определяет цвет комнаты")
