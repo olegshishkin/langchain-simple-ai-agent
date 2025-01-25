@@ -12,7 +12,7 @@ public class MyController {
     private final MyAssistant assistant;
 
     @PostMapping("/assist")
-    public String assist(@RequestBody MyBody body) {
-        return assistant.assist(body.message());
+    public String assist(@RequestBody String prompt) {
+        return assistant.assist(prompt);
     }
 }
